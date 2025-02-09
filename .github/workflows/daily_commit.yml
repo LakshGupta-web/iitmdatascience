@@ -15,8 +15,7 @@ jobs:
 
       - name: Set up git user info
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "24f1001136@ds.study.iitm.ac.in"
+          git config --global user.name "24f1001136@ds.study.iitm.ac.in"
 
       - name: Add a commit with email 24f1001136@ds.study.iitm.ac.in in the name
         run: |
