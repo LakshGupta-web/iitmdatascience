@@ -2,7 +2,7 @@ name: Daily Commit by 24f1001136@ds.study.iitm.ac.in
 
 on:
   schedule:
-    - cron: '58 10 * * *'  # Runs once a day at midnight UTC
+    - cron: '00 11 * * *'  # Runs once a day at 10:58 UTC
   workflow_dispatch: # Allows manual triggering
 
 jobs:
@@ -17,20 +17,25 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "24f1001136@ds.study.iitm.ac.in"
+          echo "Git user setup complete."
 
       - name: Commit changes by 24f1001136@ds.study.iitm.ac.in
         run: |
+          echo "Creating daily commit..."
           # Ensure the file is always updated with a new change
           echo "Daily commit $(date)" > daily_commit.txt
           git add daily_commit.txt
           git commit -m "Automated daily commit by 24f1001136@ds.study.iitm.ac.in" || echo "No changes to commit"
+          echo "Commit step complete."
 
       - name: Debugging - Check status
         run: |
           git status
           git log --oneline -n 5
+          echo "Checked git status and logs."
 
       - name: Push changes by 24f1001136@ds.study.iitm.ac.in
         run: |
-          # Force push to ensure changes are pushed to the correct branch
+          echo "Pushing changes to repository..."
           git push --force origin main || echo "Push failed"
+          echo "Push step complete."
