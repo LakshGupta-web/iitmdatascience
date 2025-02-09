@@ -16,8 +16,9 @@ jobs:
       - name: Set up git user info
         run: |
           git config --global user.name "GitHub Actions"
+          git config --global user.email "24f1001136@ds.study.iitm.ac.in"
 
-      - name: 24f1001136@ds.study.iitm.ac.in
+      - name: Commit changes by 24f1001136@ds.study.iitm.ac.in
         run: |
           # Ensure the file is always updated with a new change
           echo "Daily commit $(date)" > daily_commit.txt
@@ -29,7 +30,7 @@ jobs:
           git status
           git log --oneline -n 5
 
-      - name: Push changes
+      - name: Push changes by 24f1001136@ds.study.iitm.ac.in
         run: |
           # Force push to ensure changes are pushed to the correct branch
           git push --force origin main || echo "Push failed"
