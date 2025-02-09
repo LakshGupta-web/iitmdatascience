@@ -19,7 +19,7 @@ jobs:
           git config --global user.email "24f1001136@ds.study.iitm.ac.in"
           echo "Git user setup complete."
 
-      - name: Commit changes by 24f1001136@ds.study.iitm.ac.in
+      - name: 24f1001136@ds.study.iitm.ac.in
         run: |
           echo "Creating daily commit..."
           # Ensure the file is always updated with a new change
