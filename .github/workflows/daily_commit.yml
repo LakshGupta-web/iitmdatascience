@@ -1,12 +1,12 @@
-name: Daily Commit
+name: Daily Local Commit
 
 on:
   schedule:
-    - cron: '47 2 * * *'  # Runs daily at 02:47 UTC
-  workflow_dispatch:       # Allows manual trigger for testing
+    - cron: '25 3 * * *'  # Daily at 03:25 UTC
+  workflow_dispatch:
 
 jobs:
-  daily-commit:
+  local-commit:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,8 +15,12 @@ jobs:
 
       - name: 24f1001136@ds.study.iitm.ac.in
         run: |
+          echo "Daily commit at $(date -u)" >> daily-log.txt
+          ls -l daily-log.txt  # Debug: confirm file exists
+
+      - name: Commit file locally
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add daily-log.txt
           git commit -m "Daily commit $(date -u)" || echo "No changes to commit"
-        
