@@ -14,5 +14,5 @@ jobs:
         uses: actions/checkout@v3
 
       - name: 24f1001136@ds.study.iitm.ac.in
-        run: echo "Daily run at $(date -u)"
+        run: git commit -m "Daily commit $(date -u)"
         
