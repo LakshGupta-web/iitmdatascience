@@ -15,7 +15,7 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
 
-      - name: Update log - 24f1001136@ds.study.iitm.ac.in
+      - name: 24f1001136@ds.study.iitm.ac.in
         run: echo "Daily commit at $(date -u)" >> daily-log.txt
 
       - name: Commit and push
