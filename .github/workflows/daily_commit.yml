@@ -1,41 +1,23 @@
-name: Daily Commit by 24f1001136@ds.study.iitm.ac.in
+name: Daily Commit
 
 on:
   schedule:
-    - cron: '09 11 * * *'  # Runs once a day at 10:58 UTC
-  workflow_dispatch: # Allows manual triggering
+    - cron: '39 2 * * *'  # Runs daily at 02:39 UTC
+  workflow_dispatch:       # Allows manual trigger for testing
 
 jobs:
-  daily_commit:
+  daily-commit:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out the repository
+      - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Set up git user info
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "24f1001136@ds.study.iitm.ac.in"
-          echo "Git user setup complete."
 
       - name: 24f1001136@ds.study.iitm.ac.in
         run: |
-          echo "Creating daily commit..."
-          # Ensure the file is always updated with a new change
-          echo "Daily commit $(date)" > daily_commit.txt
-          git add daily_commit.txt
-          git commit -m "Automated daily commit by 24f1001136@ds.study.iitm.ac.in" || echo "No changes to commit"
-          echo "Commit step complete."
-
-      - name: Debugging - Check status
-        run: |
-          git status
-          git log --oneline -n 5
-          echo "Checked git status and logs."
-
-      - name: Push changes by 24f1001136@ds.study.iitm.ac.in
-        run: |
-          echo "Pushing changes to repository..."
-          git push --force origin main || echo "Push failed"
-          echo "Push step complete."
+          echo "Daily commit at $(date -u)" >> daily-log.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add daily-log.txt
+          git commit -m "Daily commit $(date -u)"
+          git push
